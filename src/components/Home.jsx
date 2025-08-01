@@ -164,8 +164,48 @@ const Home = () => {
             Our platform provides all the tools and features you need to buy, sell, and manage
           </p>
           <p className='text-2xl text-gray-500'>digital assets with confidence</p>
-        </div>
 
+          {/* This is the options part */}
+
+          <div className='p-12 flex flex-row flex-wrap justify-center items-center gap-12'>
+            <div className="relative w-[400px] h-[200px] rounded-[10px] bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVs5oOehFuyLO7QeLEU4qhHYjZA95RUKTicA&s)]  flex items-center justify-center overflow-hidden transition-transform duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group hover:rotate-[-5deg] hover:scale-[1.1] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]">
+              <div className="absolute top-1/2 left-1/2 w-full h-full p-5 box-border transform -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-white opacity-0 transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:rotate-0 group-hover:opacity-100">
+                <p className="m-0 text-2xl font-bold ">Secure Transactions</p>
+                <p className="mt-2 text-sm leading-relaxed">Every purchase is protected with bank-level security and smart contract verification.</p>
+              </div>
+            </div>
+            <div className="relative w-[400px] h-[200px] rounded-[10px] bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMHaT7hYjZxFIIFIMs7V7MSO3zt0tAuPV3RQ&s)] bg-contain flex items-center justify-center overflow-hidden transition-transform duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group hover:rotate-[-5deg] hover:scale-[1.1] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]">
+              <div className="absolute top-1/2 left-1/2 w-full h-full p-5 box-border transform -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-white opacity-0 transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:rotate-0 group-hover:opacity-100">
+                <p className="m-0 text-2xl font-bold ">Easy Upload Process</p>
+                <p className="mt-2 text-sm leading-relaxed">Upload your digital assets with just a few clicks and start selling immediately.</p>
+              </div>
+            </div>
+            <div className="relative w-[400px] h-[200px] rounded-[10px] bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS5-qktDQcdCCgXngQm8mnY_NG_6jWNWAJFA&s)] bg-contain flex items-center justify-center overflow-hidden transition-transform duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group hover:rotate-[-5deg] hover:scale-[1.1] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]">
+              <div className="absolute top-1/2 left-1/2 w-full h-full p-5 box-border transform -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-white opacity-0 transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:rotate-0 group-hover:opacity-100">
+                <p className="m-0 text-2xl font-bold ">Quality Assurance</p>
+                <p className="mt-2 text-sm leading-relaxed">All assets are reviewed for quality and authenticity before being listed.</p>
+              </div>
+            </div>
+            <div className="relative w-[400px] h-[200px] rounded-[10px] bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS90ymaGpKGqUzRYiITC2hVlTSb4XC4nrlwQ&s)] flex items-center justify-center overflow-hidden transition-transform duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group hover:rotate-[-5deg] hover:scale-[1.1] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]">
+              <div className="absolute top-1/2 left-1/2 w-full h-full p-5 box-border transform -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-white opacity-0 transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:rotate-0 group-hover:opacity-100">
+                <p className="m-0 text-2xl font-bold ">Instant Downloads</p>
+                <p className="mt-2 text-sm leading-relaxed">Get immediate access to your purchased digital assets with lightning-fast delivery.</p>
+              </div>
+            </div>
+            <div className="relative w-[400px] h-[200px] rounded-[10px] bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7NNx-sad-KilcyvQXo3SPWIJFVMWopOUVqQ&s)] flex items-center justify-center overflow-hidden transition-transform duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group hover:rotate-[-5deg] hover:scale-[1.1] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]">
+              <div className="absolute top-1/2 left-1/2 w-full h-full p-5 box-border transform -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-white opacity-0 transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:rotate-0 group-hover:opacity-100">
+                <p className="m-0 text-2xl font-bold ">Creator Support</p>
+                <p className="mt-2 text-sm leading-relaxed">Dedicated support team and resources to help creators succeed and grow their business.</p>
+              </div>
+            </div>
+            <div className="relative w-[400px] h-[200px] rounded-[10px] bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3rYjw7UicfEn0zSDC1xCsrVo2pPpEfaNA4M2r8GwsAYezaWzsoXcvColzbvgujDlNThA&usqp=CAU)] flex items-center justify-center overflow-hidden transition-transform duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group hover:rotate-[-5deg] hover:scale-[1.1] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]">
+              <div className="absolute top-1/2 left-1/2 w-full h-full p-5 box-border transform -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-white opacity-0 transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:rotate-0 group-hover:opacity-100">
+                <p className="m-0 text-2xl font-bold ">Analytics Dashboard</p>
+                <p className="mt-2 text-sm leading-relaxed">Track your sales, views, and performance with comprehensive analytics tools.</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </Layout>
     </>
