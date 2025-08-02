@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Layout from '../Layout/Layout';
 
-// This is the main component for the Contact Us page.
-// It includes a form for users to submit their information.
+
 const App = () => {
   // Use useState to manage the form data.
   const [formData, setFormData] = useState({
@@ -12,10 +11,8 @@ const App = () => {
     message: '',
   });
 
-  // State to handle the form submission status and messages.
   const [status, setStatus] = useState('');
 
-  // Handles changes to the form inputs and updates the state.
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -29,12 +26,8 @@ const App = () => {
     e.preventDefault();
     setStatus('Submitting...');
     
-    // Simulate an API call to a backend.
-    // In a real application, you would replace this with a fetch() call
-    // to your server or a service like Firebase, etc.
     try {
       console.log('Form data submitted:', formData);
-      // await new Promise((resolve) => setTimeout(resolve, 2000)); // Simulate network delay
       setStatus('Your message has been sent successfully!');
       setFormData({
         name: '',
@@ -77,6 +70,7 @@ const App = () => {
               value={formData.name}
               onChange={handleChange}
               required
+              placeholder='John Doe'
               className="mt-1 block w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all"
             />
           </div>
@@ -93,6 +87,7 @@ const App = () => {
               value={formData.email}
               onChange={handleChange}
               required
+              placeholder='someone@example.com'
               className="mt-1 block w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all"
             />
           </div>
@@ -109,6 +104,7 @@ const App = () => {
               onChange={handleChange}
               rows="4"
               required
+              placeholder='Your message here...'
               className="mt-1 block w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all resize-none"
             ></textarea>
           </div>
