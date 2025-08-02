@@ -8,10 +8,10 @@ const Star = ({ filled }) => (
 );
 
 const ProductCard = ({ image, title, price, rating }) => (
-  <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm">
-    <img className="p-8 rounded-t-lg" src={image} alt={title} />
-    <div className="px-5 pb-5">
-      <h5 className="text-xl font-semibold tracking-tight text-gray-900">{title}</h5>
+  <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm mx-auto sm:mx-0">
+    <img className="p-4 sm:p-8 rounded-t-lg w-full h-48 object-cover" src={image} alt={title} />
+    <div className="px-3 sm:px-5 pb-5">
+      <h5 className="text-lg sm:text-xl font-semibold tracking-tight text-gray-900">{title}</h5>
       <div className="flex items-center mt-2.5 mb-5">
         <div className="flex space-x-1">
           {[...Array(5)].map((_, i) => <Star key={i} filled={i < rating} />)}
@@ -20,9 +20,9 @@ const ProductCard = ({ image, title, price, rating }) => (
           {rating}.0
         </span>
       </div>
-      <div className="flex items-center justify-between">
-        <span className="text-3xl font-bold text-gray-900">${price}</span>
-        <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+        <span className="text-2xl sm:text-3xl font-bold text-gray-900">${price}</span>
+        <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5">
           Add to cart
         </button>
       </div>
@@ -35,50 +35,50 @@ const Home = () => {
     <>
       <Layout>
         {/* Hero section */}
-        <div className='p-8 flex flex-col items-center bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200'>
-          <h1 className='text-6xl font-bold'>Buy & Sell</h1>
-          <h1 className='text-7xl font-bold text-cyan-400 p-4'>Digital Assets</h1>
-          <h3 className='text-5xl font-bold text-gray-500'>with Confidence</h3>
-          <br /><br />
-          <p className='text-2xl text-gray-600 text-center'>
-            Discover , buy, and sell premium digital art, music, NFTs, and eBooks. Join <br />
+        <div className='p-4 sm:p-8 flex flex-col items-center bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200'>
+          <h1 className='text-3xl sm:text-6xl font-bold text-center'>Buy & Sell</h1>
+          <h1 className='text-4xl sm:text-7xl font-bold text-cyan-400 p-2 sm:p-4 text-center'>Digital Assets</h1>
+          <h3 className='text-2xl sm:text-5xl font-bold text-gray-500 text-center'>with Confidence</h3>
+          <br className="hidden sm:block" /><br className="hidden sm:block" />
+          <p className='text-base sm:text-2xl text-gray-600 text-center'>
+            Discover , buy, and sell premium digital art, music, NFTs, and eBooks. Join <br className="hidden sm:block" />
             thousands of creators and collectors in the most trusted digital marketplace.
           </p>
-          <div>
-            <button className='rounded-xl m-4 font-bold p-6 bg-gradient-to-r from-blue-400 via-green-300 to-indigo-400'>
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-0">
+            <button className='rounded-xl m-2 sm:m-4 font-bold p-4 sm:p-6 bg-gradient-to-r from-blue-400 via-green-300 to-indigo-400'>
               Explore Marketplace
             </button>
-            <button className=' rounded-xl border-2 font-bold border-b-blue-500 p-6 m-6'>Start Selling</button>
+            <button className='rounded-xl border-2 font-bold border-b-blue-500 p-4 sm:p-6 m-2 sm:m-6'>Start Selling</button>
           </div>
-          <div className='flex items-center space-x-4 gap-30 p-12'>
+          <div className='flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 gap-0 sm:gap-30 p-6 sm:p-12 w-full justify-center'>
             {/* Statistics */}
-            <div className=' ml-3justify-center items-center'>
-              <img src='https://media2.giphy.com/media/v1.../giphy.gif' alt='Twitter' className='w-10 h-10 m-2' />
-              <h1 className='font-bold text-2xl'>50K+</h1>
-              <p className='text-gray-500'>Digital Assets</p>
+            <div className='flex flex-col items-center justify-center'>
+              <img src='https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXlmeG9wMXlncXhha2xjcDluNnRidmFrZXczdTNnYWtud3ZtNzdocSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qHRB7JyQElM24NT0EG/giphy.gif' alt='Digital Assets' className='w-10 h-10 m-2' />
+              <h1 className='font-bold text-xl sm:text-2xl'>50K+</h1>
+              <p className='text-gray-500 text-sm sm:text-base'>Digital Assets</p>
             </div>
-            <div className='p-4'>
-              <img src='https://media1.giphy.com/media/.../giphy.gif' alt='Twitter' className='w-10 h-10 m-2' />
-              <h1 className='font-bold text-2xl'>10K+</h1>
-              <p className='text-gray-500'>Active Creators</p>
+            <div className='flex flex-col items-center justify-center p-2 sm:p-4'>
+              <img src='https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExeG56dWd4ZG1mdzdpYWFieG5kaGhmZ3E1dGlpZ2c1YzBsZ3ZrNDA3eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/hZE5xoaM0Oxw4xiqH7/giphy.gif' alt='Active Creators' className='w-10 h-10 m-2' />
+              <h1 className='font-bold text-xl sm:text-2xl'>10K+</h1>
+              <p className='text-gray-500 text-sm sm:text-base'>Active Creators</p>
             </div>
-            <div className='p-4'>
-              <img src='https://media3.giphy.com/media/.../giphy.gif' alt='Twitter' className='w-10 h-10 m-2' />
-              <h1 className='font-bold text-2xl'>100%</h1>
-              <p className='text-gray-500'>Secure Transactions</p>
+            <div className='flex flex-col items-center justify-center p-2 sm:p-4'>
+              <img src='https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGdra3N6a294czBxa2dwZDBvd2N6enE0bXZjenllYm5hZzVrM2J5diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XkuTKBRjjGpbPVH7ib/giphy.gif' alt='Secure Transactions' className='w-10 h-10 m-2' />
+              <h1 className='font-bold text-xl sm:text-2xl'>100%</h1>
+              <p className='text-gray-500 text-sm sm:text-base'>Secure Transactions</p>
             </div>
           </div>
         </div>
 
         {/* Trending Products Section */}
-        <div className='p-8 flex flex-col justify-center items-center bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200'>
-          <h1 className='font-extrabold text-4xl p-6'>Trending Digital Assets</h1>
-          <p className='text-2xl text-gray-500 p-2'>
+        <div className='p-4 sm:p-8 flex flex-col justify-center items-center bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200'>
+          <h1 className='font-extrabold text-2xl sm:text-4xl p-2 sm:p-6 text-center'>Trending Digital Assets</h1>
+          <p className='text-base sm:text-2xl text-gray-500 p-2 text-center'>
             Discover the most popular and high-quality digital assets from our community of talented creators
           </p>
 
           {/* Use the component */}
-          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 p-8'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 p-4 sm:p-8 w-full'>
             <ProductCard
               image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThvIT0v4yBWsTbCcghDrEnqZYpYTi_TgcwMA&s"
               title="Ebooks & PDFs"
@@ -116,9 +116,8 @@ const Home = () => {
               rating={3}
             />
           </div>
-
           <button
-            className="relative inline-flex items-center justify-center px-8 py-2.5 overflow-hidden tracking-tighter text-white bg-blue-600  rounded-md group"
+            className="relative inline-flex items-center justify-center px-6 sm:px-8 py-2 sm:py-2.5 overflow-hidden tracking-tighter text-white bg-blue-600 rounded-md group mt-4"
           >
             <span
               className="absolute w-0 h-0 transition-all duration-500 ease-out bg-blue-400 rounded-full group-hover:w-56 group-hover:h-56"
@@ -154,51 +153,50 @@ const Home = () => {
             <span
               className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-gray-200"
             ></span>
-            <span className="relative text-base font-semibold">View All Assets</span>
+            <span className="relative text-sm sm:text-base font-semibold">View All Assets</span>
           </button>
         </div>
 
-        <div className='p-8 flex flex-col items-center bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200'>
-          <h1 className='text-4xl font-bold'>Everything You Need to Succeed</h1>
-          <p className='text-2xl text-gray-500 pt-4'>
+        <div className='p-4 sm:p-8 flex flex-col items-center bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200'>
+          <h1 className='text-2xl sm:text-4xl font-bold text-center'>Everything You Need to Succeed</h1>
+          <p className='text-base sm:text-2xl text-gray-500 pt-2 sm:pt-4 text-center'>
             Our platform provides all the tools and features you need to buy, sell, and manage
           </p>
-          <p className='text-2xl text-gray-500'>digital assets with confidence</p>
-
+          <p className='text-base sm:text-2xl text-gray-500 text-center'>digital assets with confidence</p>
           {/* This is the options part */}
-
-          <div className='p-12 flex flex-row flex-wrap justify-center items-center gap-12'>
-            <div className="relative w-[400px] h-[200px] rounded-[10px] bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVs5oOehFuyLO7QeLEU4qhHYjZA95RUKTicA&s)]  flex items-center justify-center overflow-hidden transition-transform duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group hover:rotate-[-5deg] hover:scale-[1.1] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]">
+          <div className='p-4 sm:p-12 flex flex-col sm:flex-row flex-wrap justify-center items-center gap-6 sm:gap-12 w-full'>
+            {/* Each card */}
+            <div className="relative w-full sm:w-[400px] h-[180px] sm:h-[200px] rounded-[10px] bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVs5oOehFuyLO7QeLEU4qhHYjZA95RUKTicA&s)] flex items-center justify-center overflow-hidden transition-transform duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group hover:rotate-[-5deg] hover:scale-[1.1] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)] mb-4 sm:mb-0">
               <div className="absolute top-1/2 left-1/2 w-full h-full p-5 box-border transform -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-white opacity-0 transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:rotate-0 group-hover:opacity-100">
                 <p className="m-0 text-2xl font-bold ">Secure Transactions</p>
                 <p className="mt-2 text-sm leading-relaxed">Every purchase is protected with bank-level security and smart contract verification.</p>
               </div>
             </div>
-            <div className="relative w-[400px] h-[200px] rounded-[10px] bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMHaT7hYjZxFIIFIMs7V7MSO3zt0tAuPV3RQ&s)] bg-contain flex items-center justify-center overflow-hidden transition-transform duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group hover:rotate-[-5deg] hover:scale-[1.1] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]">
+            <div className="relative w-full sm:w-[400px] h-[180px] sm:h-[200px] rounded-[10px] bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMHaT7hYjZxFIIFIMs7V7MSO3zt0tAuPV3RQ&s)] bg-contain flex items-center justify-center overflow-hidden transition-transform duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group hover:rotate-[-5deg] hover:scale-[1.1] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)] mb-4 sm:mb-0">
               <div className="absolute top-1/2 left-1/2 w-full h-full p-5 box-border transform -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-white opacity-0 transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:rotate-0 group-hover:opacity-100">
                 <p className="m-0 text-2xl font-bold ">Easy Upload Process</p>
                 <p className="mt-2 text-sm leading-relaxed">Upload your digital assets with just a few clicks and start selling immediately.</p>
               </div>
             </div>
-            <div className="relative w-[400px] h-[200px] rounded-[10px] bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS5-qktDQcdCCgXngQm8mnY_NG_6jWNWAJFA&s)] bg-contain flex items-center justify-center overflow-hidden transition-transform duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group hover:rotate-[-5deg] hover:scale-[1.1] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]">
+            <div className="relative w-full sm:w-[400px] h-[180px] sm:h-[200px] rounded-[10px] bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS5-qktDQcdCCgXngQm8mnY_NG_6jWNWAJFA&s)] bg-contain flex items-center justify-center overflow-hidden transition-transform duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group hover:rotate-[-5deg] hover:scale-[1.1] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)] mb-4 sm:mb-0">
               <div className="absolute top-1/2 left-1/2 w-full h-full p-5 box-border transform -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-white opacity-0 transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:rotate-0 group-hover:opacity-100">
                 <p className="m-0 text-2xl font-bold ">Quality Assurance</p>
                 <p className="mt-2 text-sm leading-relaxed">All assets are reviewed for quality and authenticity before being listed.</p>
               </div>
             </div>
-            <div className="relative w-[400px] h-[200px] rounded-[10px] bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS90ymaGpKGqUzRYiITC2hVlTSb4XC4nrlwQ&s)] flex items-center justify-center overflow-hidden transition-transform duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group hover:rotate-[-5deg] hover:scale-[1.1] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]">
+            <div className="relative w-full sm:w-[400px] h-[180px] sm:h-[200px] rounded-[10px] bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS90ymaGpKGqUzRYiITC2hVlTSb4XC4nrlwQ&s)] flex items-center justify-center overflow-hidden transition-transform duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group hover:rotate-[-5deg] hover:scale-[1.1] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)] mb-4 sm:mb-0">
               <div className="absolute top-1/2 left-1/2 w-full h-full p-5 box-border transform -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-white opacity-0 transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:rotate-0 group-hover:opacity-100">
                 <p className="m-0 text-2xl font-bold ">Instant Downloads</p>
                 <p className="mt-2 text-sm leading-relaxed">Get immediate access to your purchased digital assets with lightning-fast delivery.</p>
               </div>
             </div>
-            <div className="relative w-[400px] h-[200px] rounded-[10px] bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7NNx-sad-KilcyvQXo3SPWIJFVMWopOUVqQ&s)] flex items-center justify-center overflow-hidden transition-transform duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group hover:rotate-[-5deg] hover:scale-[1.1] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]">
+            <div className="relative w-full sm:w-[400px] h-[180px] sm:h-[200px] rounded-[10px] bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7NNx-sad-KilcyvQXo3SPWIJFVMWopOUVqQ&s)] flex items-center justify-center overflow-hidden transition-transform duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group hover:rotate-[-5deg] hover:scale-[1.1] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)] mb-4 sm:mb-0">
               <div className="absolute top-1/2 left-1/2 w-full h-full p-5 box-border transform -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-white opacity-0 transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:rotate-0 group-hover:opacity-100">
                 <p className="m-0 text-2xl font-bold ">Creator Support</p>
                 <p className="mt-2 text-sm leading-relaxed">Dedicated support team and resources to help creators succeed and grow their business.</p>
               </div>
             </div>
-            <div className="relative w-[400px] h-[200px] rounded-[10px] bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3rYjw7UicfEn0zSDC1xCsrVo2pPpEfaNA4M2r8GwsAYezaWzsoXcvColzbvgujDlNThA&usqp=CAU)] flex items-center justify-center overflow-hidden transition-transform duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group hover:rotate-[-5deg] hover:scale-[1.1] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]">
+            <div className="relative w-full sm:w-[400px] h-[180px] sm:h-[200px] rounded-[10px] bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3rYjw7UicfEn0zSDC1xCsrVo2pPpEfaNA4M2r8GwsAYezaWzsoXcvColzbvgujDlNThA&usqp=CAU)] flex items-center justify-center overflow-hidden transition-transform duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group hover:rotate-[-5deg] hover:scale-[1.1] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)] mb-4 sm:mb-0">
               <div className="absolute top-1/2 left-1/2 w-full h-full p-5 box-border transform -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-white opacity-0 transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:rotate-0 group-hover:opacity-100">
                 <p className="m-0 text-2xl font-bold ">Analytics Dashboard</p>
                 <p className="mt-2 text-sm leading-relaxed">Track your sales, views, and performance with comprehensive analytics tools.</p>
