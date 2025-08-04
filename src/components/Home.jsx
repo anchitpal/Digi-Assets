@@ -1,5 +1,6 @@
 import React from 'react'
 import Layout from '../Layout/Layout'
+import {Link, Navigate} from 'react-router-dom'
 
 const Star = ({ filled }) => (
   <svg className={`w-4 h-4 ${filled ? 'text-yellow-300' : 'text-gray-300'}`} xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
@@ -45,10 +46,13 @@ const Home = () => {
             thousands of creators and collectors in the most trusted digital marketplace.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-0">
-            <button className='rounded-xl m-2 sm:m-4 font-bold p-4 sm:p-6 bg-gradient-to-r from-blue-400 via-green-300 to-indigo-400'>
+            <Link to='marketplace'>
+            <button className='rounded-xl sm:m-4 m-3 font-bold p-4 sm:p-6 bg-gradient-to-r from-blue-500 via-sky-400 to-cyan-300 hover:from-blue-500 hover:via-green-400 hover:to-indigo-500'>
               Explore Marketplace
             </button>
-            <button className='rounded-xl border-2 font-bold border-b-blue-500 p-4 sm:p-6 m-2 sm:m-6'>Start Selling</button>
+            </Link>
+            <Link to='upload'><button className='rounded-xl sm:m-4  font-bold border-b-blue-500 p-4 sm:p-6 
+            hover:border-b-blue-800 bg-gradient-to-bl from-blue-400 via-40% hover:from-blue-500 hover:via-70%'>Start Selling</button></Link>
           </div>
           <div className='flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 gap-0 sm:gap-30 p-6 sm:p-12 w-full justify-center'>
             {/* Statistics */}
@@ -153,7 +157,7 @@ const Home = () => {
             <span
               className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-gray-200"
             ></span>
-            <span className="relative text-sm sm:text-base font-semibold">View All Assets</span>
+            <Link to='/marketplace'><span className="relative text-sm sm:text-base font-semibold" >View All Assets</span></Link>
           </button>
         </div>
 
