@@ -1,5 +1,6 @@
 import React from 'react'
 import Layout from '../Layout/Layout'
+import { motion } from 'framer-motion'
 import {Link, Navigate} from 'react-router-dom'
 
 const Star = ({ filled }) => (
@@ -9,10 +10,10 @@ const Star = ({ filled }) => (
 );
 
 const ProductCard = ({ image, title, price, rating }) => (
-  <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm mx-auto sm:mx-0">
-    <img className="p-4 sm:p-8 rounded-t-lg w-full h-48 object-cover" src={image} alt={title} />
+  <motion.div animate={{ scale: 1.0 }} whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }} className="w-full max-w-sm bg-white border border-gray-200 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)] rounded-lg shadow-sm mx-auto sm:mx-0">
+    <img className="p-4 sm:p-8 rounded-t-lg w-full text-white h-48 object-cover" src={image} alt={title} />
     <div className="px-3 sm:px-5 pb-5">
-      <h5 className="text-lg sm:text-xl font-semibold tracking-tight text-gray-900">{title}</h5>
+      <h5 className="text-lg sm:text-xl font-semibold tracking-tight text-white">{title}</h5>
       <div className="flex items-center mt-2.5 mb-5">
         <div className="flex space-x-1">
           {[...Array(5)].map((_, i) => <Star key={i} filled={i < rating} />)}
@@ -22,62 +23,63 @@ const ProductCard = ({ image, title, price, rating }) => (
         </span>
       </div>
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-        <span className="text-2xl sm:text-3xl font-bold text-gray-900">${price}</span>
-        <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5">
+        <span className="text-2xl sm:text-3xl font-bold text-white">${price}</span>
+        <motion.button animate={{ scale: 1.0 }} whileHover={{ scale: 1.15 }} transition={{ duration: 0.2 }} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5">
           Add to cart
-        </button>
+        </motion.button>
       </div>
     </div>
-  </div>
+  </motion.div>
 );
 
 const Home = () => {
   return (
     <>
       <Layout>
+        <div className='[background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]'>
         {/* Hero section */}
-        <div className='p-4 sm:p-8 flex flex-col items-center bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200'>
+        <div className='p-4 sm:p-8 flex flex-col items-center'>
           <h1 className='text-3xl sm:text-6xl font-bold text-center'>Buy & Sell</h1>
           <h1 className='text-4xl sm:text-7xl font-bold text-cyan-400 p-2 sm:p-4 text-center'>Digital Assets</h1>
-          <h3 className='text-2xl sm:text-5xl font-bold text-gray-500 text-center'>with Confidence</h3>
+          <h3 className='text-2xl sm:text-5xl font-bold text-gray-300 text-center'>with Confidence</h3>
           <br className="hidden sm:block" /><br className="hidden sm:block" />
-          <p className='text-base sm:text-2xl text-gray-600 text-center'>
+          <p className='text-base sm:text-2xl text-gray-300 text-center'>
             Discover , buy, and sell premium digital art, music, NFTs, and eBooks. Join <br className="hidden sm:block" />
             thousands of creators and collectors in the most trusted digital marketplace.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-0">
             <Link to='marketplace'>
-            <button className='rounded-xl sm:m-4 m-3 font-bold p-4 sm:p-6 bg-gradient-to-r from-blue-500 via-sky-400 to-cyan-300 hover:from-blue-500 hover:via-green-400 hover:to-indigo-500'>
+            <motion.button animate={{ scale: 1.1 }} whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }} className='rounded-xl sm:m-4 m-3 font-bold p-4 sm:p-6 bg-gradient-to-r from-blue-500 via-sky-400 to-cyan-300 hover:from-blue-500 hover:via-green-400 hover:to-indigo-500'>
               Explore Marketplace
-            </button>
+            </motion.button>
             </Link>
-            <Link to='selling'><button className='rounded-xl sm:m-4  font-bold border-b-blue-500 p-4 sm:p-6 
-            hover:border-b-blue-800 bg-gradient-to-bl from-blue-400 via-40% hover:from-blue-500 hover:via-70%'>Start Selling</button></Link>
+            <Link to='selling'><motion.button animate={{ scale: 1.1 }} whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }} className='rounded-xl sm:m-4  font-bold border-b-blue-500 p-4 sm:p-6 
+            hover:border-b-blue-800 bg-gradient-to-bl from-blue-400 via-40% hover:from-blue-500 hover:via-70% hover:to-blue-200'>Start Selling</motion.button></Link>
           </div>
           <div className='flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 gap-0 sm:gap-30 p-6 sm:p-12 w-full justify-center'>
             {/* Statistics */}
-            <div className='flex flex-col items-center justify-center'>
+            <motion.div animate={{ scale: 1.1 }} whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }} className='flex flex-col items-center justify-center '>
               <img src='https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXlmeG9wMXlncXhha2xjcDluNnRidmFrZXczdTNnYWtud3ZtNzdocSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qHRB7JyQElM24NT0EG/giphy.gif' alt='Digital Assets' className='w-10 h-10 m-2' />
               <h1 className='font-bold text-xl sm:text-2xl'>50K+</h1>
-              <p className='text-gray-500 text-sm sm:text-base'>Digital Assets</p>
-            </div>
-            <div className='flex flex-col items-center justify-center p-2 sm:p-4'>
+              <p className='text-gray-300 text-sm sm:text-base'>Digital Assets</p>
+            </motion.div>
+            <motion.div animate={{ scale: 1.1 }} whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }} className='flex flex-col items-center justify-center p-2 sm:p-4'>
               <img src='https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExeG56dWd4ZG1mdzdpYWFieG5kaGhmZ3E1dGlpZ2c1YzBsZ3ZrNDA3eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/hZE5xoaM0Oxw4xiqH7/giphy.gif' alt='Active Creators' className='w-10 h-10 m-2' />
               <h1 className='font-bold text-xl sm:text-2xl'>10K+</h1>
-              <p className='text-gray-500 text-sm sm:text-base'>Active Creators</p>
-            </div>
-            <div className='flex flex-col items-center justify-center p-2 sm:p-4'>
+              <p className='text-gray-300 text-sm sm:text-base'>Active Creators</p>
+            </motion.div>
+            <motion.div animate={{ scale: 1.1 }} whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }} className='flex flex-col items-center justify-center p-2 sm:p-4'>
               <img src='https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGdra3N6a294czBxa2dwZDBvd2N6enE0bXZjenllYm5hZzVrM2J5diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XkuTKBRjjGpbPVH7ib/giphy.gif' alt='Secure Transactions' className='w-10 h-10 m-2' />
               <h1 className='font-bold text-xl sm:text-2xl'>100%</h1>
-              <p className='text-gray-500 text-sm sm:text-base'>Secure Transactions</p>
-            </div>
+              <p className='text-gray-300 text-sm sm:text-base'>Secure Transactions</p>
+            </motion.div>
           </div>
         </div>
 
         {/* Trending Products Section */}
-        <div className='p-4 sm:p-8 flex flex-col justify-center items-center bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200'>
-          <h1 className='font-extrabold text-2xl sm:text-4xl p-2 sm:p-6 text-center'>Trending Digital Assets</h1>
-          <p className='text-base sm:text-2xl text-gray-500 p-2 text-center'>
+        <div className='p-4 sm:p-8 flex flex-col justify-center items-center '>
+          <h1 className='font-extrabold text-gray-300 text-2xl sm:text-4xl p-2 sm:p-6 text-center'>Trending Digital Assets</h1>
+          <p className='text-base sm:text-2xl text-gray-300 p-2 text-center'>
             Discover the most popular and high-quality digital assets from our community of talented creators
           </p>
 
@@ -121,7 +123,7 @@ const Home = () => {
             />
           </div>
           <Link to='/marketplace'>
-          <button
+          <motion.button animate={{ scale: 1.05 }} whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }}
             className="relative inline-flex items-center justify-center px-6 sm:px-8 py-2 sm:py-2.5 overflow-hidden tracking-tighter text-white bg-blue-600 rounded-md group mt-4"
           >
             <span
@@ -159,56 +161,57 @@ const Home = () => {
               className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-gray-200"
             ></span>
             <span className="relative text-sm sm:text-base font-semibold" >View All Assets</span>
-          </button>
+          </motion.button>
           </Link>
         </div>
 
-        <div className='p-4 sm:p-8 flex flex-col items-center bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200'>
-          <h1 className='text-2xl sm:text-4xl font-bold text-center'>Everything You Need to Succeed</h1>
-          <p className='text-base sm:text-2xl text-gray-500 pt-2 sm:pt-4 text-center'>
+        <div className='p-4 sm:p-8 flex flex-col items-center '>
+          <h1 className='text-2xl sm:text-4xl font-bold text-white text-center'>Everything You Need to Succeed</h1>
+          <p className='text-base sm:text-2xl text-white pt-2 sm:pt-4 text-center'>
             Our platform provides all the tools and features you need to buy, sell, and manage
           </p>
-          <p className='text-base sm:text-2xl text-gray-500 text-center'>digital assets with confidence</p>
+          <p className='text-base sm:text-2xl text-white text-center'>digital assets with confidence</p>
           {/* This is the options part */}
           <div className='p-4 sm:p-12 flex flex-col sm:flex-row flex-wrap justify-center items-center gap-6 sm:gap-12 w-full'>
             {/* Each card */}
             <div className="relative w-full sm:w-[400px] h-[180px] sm:h-[200px]  rounded-[10px] bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVs5oOehFuyLO7QeLEU4qhHYjZA95RUKTicA&s)] flex items-center justify-center overflow-hidden transition-transform duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group hover:rotate-[-5deg] hover:scale-[1.1] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)] mb-4 sm:mb-0">
-              <div className="absolute top-1/2 left-1/2 w-full h-full p-5 box-border transform -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-white opacity-0 transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:rotate-0 group-hover:opacity-100 bg-gradient-to-r from-blue-200 to-green-400">
+              <div className="absolute top-1/2 left-1/2 w-full h-full p-5 box-border transform -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-white opacity-0 transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:rotate-0 group-hover:opacity-100 bg-gradient-to-r from-blue-200 to-purple-400">
                 <p className="m-0 text-2xl font-bold ">Secure Transactions</p>
                 <p className="mt-2 text-sm leading-relaxed">Every purchase is protected with bank-level security and smart contract verification.</p>
               </div>
             </div>
             <div className="relative w-full sm:w-[400px] h-[180px] sm:h-[200px] rounded-[10px] bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMHaT7hYjZxFIIFIMs7V7MSO3zt0tAuPV3RQ&s)] bg-contain flex items-center justify-center overflow-hidden transition-transform duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group hover:rotate-[-5deg] hover:scale-[1.1] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)] mb-4 sm:mb-0">
-              <div className="absolute top-1/2 left-1/2 w-full h-full p-5 box-border transform -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-white opacity-0 transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:rotate-0 group-hover:opacity-100 bg-gradient-to-r from-blue-200 to-green-400">
+              <div className="absolute top-1/2 left-1/2 w-full h-full p-5 box-border transform -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-white opacity-0 transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:rotate-0 group-hover:opacity-100 bg-gradient-to-r from-blue-200 to-purple-400">
                 <p className="m-0 text-2xl font-bold ">Easy Upload Process</p>
                 <p className="mt-2 text-sm leading-relaxed">Upload your digital assets with just a few clicks and start selling immediately.</p>
               </div>
             </div>
             <div className="relative w-full sm:w-[400px] h-[180px] sm:h-[200px] rounded-[10px] bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS5-qktDQcdCCgXngQm8mnY_NG_6jWNWAJFA&s)] bg-contain flex items-center justify-center overflow-hidden transition-transform duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group hover:rotate-[-5deg] hover:scale-[1.1] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)] mb-4 sm:mb-0">
-              <div className="absolute top-1/2 left-1/2 w-full h-full p-5 box-border transform -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-white opacity-0 transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:rotate-0 group-hover:opacity-100 bg-gradient-to-r from-blue-200 to-green-400">
+              <div className="absolute top-1/2 left-1/2 w-full h-full p-5 box-border transform -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-white opacity-0 transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:rotate-0 group-hover:opacity-100 bg-gradient-to-r from-blue-200 to-purple-400">
                 <p className="m-0 text-2xl font-bold ">Quality Assurance</p>
                 <p className="mt-2 text-sm leading-relaxed">All assets are reviewed for quality and authenticity before being listed.</p>
               </div>
             </div>
             <div className="relative w-full sm:w-[400px] h-[180px] sm:h-[200px] rounded-[10px] bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS90ymaGpKGqUzRYiITC2hVlTSb4XC4nrlwQ&s)] flex items-center justify-center overflow-hidden transition-transform duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group hover:rotate-[-5deg] hover:scale-[1.1] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)] mb-4 sm:mb-0">
-              <div className="absolute top-1/2 left-1/2 w-full h-full p-5 box-border transform -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-white opacity-0 transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:rotate-0 group-hover:opacity-100 bg-gradient-to-r from-blue-200 to-green-400">
+              <div className="absolute top-1/2 left-1/2 w-full h-full p-5 box-border transform -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-white opacity-0 transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:rotate-0 group-hover:opacity-100 bg-gradient-to-r from-blue-200 to-purple-400">
                 <p className="m-0 text-2xl font-bold ">Instant Downloads</p>
                 <p className="mt-2 text-sm leading-relaxed">Get immediate access to your purchased digital assets with lightning-fast delivery.</p>
               </div>
             </div>
             <div className="relative w-full sm:w-[400px] h-[180px] sm:h-[200px] rounded-[10px] bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7NNx-sad-KilcyvQXo3SPWIJFVMWopOUVqQ&s)] flex items-center justify-center overflow-hidden transition-transform duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group hover:rotate-[-5deg] hover:scale-[1.1] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)] mb-4 sm:mb-0">
-              <div className="absolute top-1/2 left-1/2 w-full h-full p-5 box-border transform -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-white opacity-0 transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:rotate-0 group-hover:opacity-100 bg-gradient-to-r from-blue-200 to-green-400">
+              <div className="absolute top-1/2 left-1/2 w-full h-full p-5 box-border transform -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-white opacity-0 transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:rotate-0 group-hover:opacity-100 bg-gradient-to-r from-blue-200 to-purple-400">
                 <p className="m-0 text-2xl font-bold ">Creator Support</p>
                 <p className="mt-2 text-sm leading-relaxed">Dedicated support team and resources to help creators succeed and grow their business.</p>
               </div>
             </div>
             <div className="relative w-full sm:w-[400px] h-[180px] sm:h-[200px] rounded-[10px] bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3rYjw7UicfEn0zSDC1xCsrVo2pPpEfaNA4M2r8GwsAYezaWzsoXcvColzbvgujDlNThA&usqp=CAU)] flex items-center justify-center overflow-hidden transition-transform duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group hover:rotate-[-5deg] hover:scale-[1.1] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)] mb-4 sm:mb-0">
-              <div className="absolute top-1/2 left-1/2 w-full h-full p-5 box-border transform -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-white opacity-0 transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:rotate-0 group-hover:opacity-100 bg-gradient-to-r from-blue-200 to-green-400">
+              <div className="absolute top-1/2 left-1/2 w-full h-full p-5 box-border transform -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-white opacity-0 transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:rotate-0 group-hover:opacity-100 bg-gradient-to-r from-blue-200 to-purple-400">
                 <p className="m-0 text-2xl font-bold ">Analytics Dashboard</p>
                 <p className="mt-2 text-sm leading-relaxed">Track your sales, views, and performance with comprehensive analytics tools.</p>
               </div>
             </div>
           </div>
+        </div>
         </div>
 
       </Layout>

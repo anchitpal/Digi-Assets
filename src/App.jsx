@@ -7,12 +7,12 @@ import {
   Routes,
 } from "react-router-dom";
 
-import Home from './components/Home'
-import Login from './components/Login'
-import About from './components/About'
-import Contact from './components/Contact'
-import MarketPlace from './components/MarketPlace'
-import Selling from './components/Selling'
+import Home from './pages/Home'
+import Login from './pages/Login'
+import About from './pages/About'
+import Contact from './pages/Contact'
+import MarketPlace from './pages/MarketPlace'
+import Selling from './pages/Selling'
 
 function App() {
   return (

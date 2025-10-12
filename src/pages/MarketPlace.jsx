@@ -51,15 +51,16 @@ const MarketPlace = () => {
 
   return (
     <Layout>
+      <div className='[background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]'>
       {/* Your original header section */}
-      <section className='bg-gradient-to-tr from-violet-600 via-blue-500 to-pink-400 w-full h-64 flex flex-col items-center justify-center text-white gap-5'>
+      <section className='w-full h-64 flex flex-col items-center justify-center text-white gap-5'>
         <h1 className='font-bold text-5xl'>Digital Marketplace</h1>
         <p className='text-xl'>Discover premium digital assets from talented creators worldwide</p>
-        <input type="text" placeholder='Search for digital assets...' className='bg-white p-6 h-10 w-2xl text-black rounded'/>
+        <input type="text" placeholder='Search for digital assets...' className='p-6 h-10 w-2xl text-white rounded'/>
       </section>
 
       {/* The main marketplace UI, integrated below your header */}
-      <div className="bg-gray-100 p-4 md:p-8 font-['Inter']">
+      <div className="p-4 md:p-8 font-['Inter']">
         {/* Mobile header (hidden on larger screens) */}
         <div className="flex justify-between items-center bg-white shadow-lg p-4 mb-4 rounded-lg md:hidden">
           <h1 className="text-xl font-bold">Marketplace</h1>
@@ -71,9 +72,9 @@ const MarketPlace = () => {
         {/* Main content container with a flex layout for sidebar and main area */}
         <div className="container mx-auto flex flex-col md:flex-row gap-8">
           {/* Sidebar for filters */}
-          <aside className="w-full md:w-1/4 bg-white p-6 rounded-lg shadow-lg flex-shrink-0">
+          <aside className="w-full md:w-1/4 p-6 rounded-lg shadow-lg flex-shrink-0">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold text-gray-800 flex items-center gap-2">
+              <h2 className="text-xl font-bold text-gray-300 flex items-center gap-2">
                 <Filter size={20} />
                 Filters
               </h2>
@@ -81,8 +82,8 @@ const MarketPlace = () => {
 
             {/* Category Filter */}
             <div className="mb-6">
-              <label className="block text-gray-600 font-semibold mb-2">Category</label>
-              <select className="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500">
+              <label className="block text-gray-100 font-semibold mb-2">Category</label>
+              <select className="w-full p-2 border bg-white border-gray-100 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500">
                 <option>All Categories</option>
                 <option>Digital Art</option>
                 <option>Music</option>
@@ -92,7 +93,7 @@ const MarketPlace = () => {
 
             {/* Price Range Filter */}
             <div className="mb-6">
-              <label className="block text-gray-600 font-semibold mb-2">
+              <label className="block text-gray-300 font-semibold mb-2">
                 Price Range: $0 - ${priceRange}
               </label>
               <input
@@ -113,8 +114,8 @@ const MarketPlace = () => {
 
             {/* Sort By Filter */}
             <div className="mb-6">
-              <label className="block text-gray-600 font-semibold mb-2">Sort By</label>
-              <select className="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500">
+              <label className="block text-gray-300 font-semibold mb-2">Sort By</label>
+              <select className="w-full bg-white p-2 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500">
                 <option>Newest First</option>
                 <option>Price: Low to High</option>
                 <option>Price: High to Low</option>
@@ -127,14 +128,14 @@ const MarketPlace = () => {
           <main className="w-full md:w-3/4">
             {/* Main header with result count and view toggles */}
             <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
-              <h1 className="text-xl sm:text-2xl font-bold text-gray-800">
+              <h1 className="text-xl sm:text-2xl font-bold text-gray-300">
                 Showing {initialAssets.length} results
               </h1>
               <div className="flex items-center gap-2 mt-2 sm:mt-0">
-                <button className="p-2 rounded-md bg-gray-200 text-gray-700 hover:bg-gray-300 transition">
+                <button className="p-2 rounded-md text-gray-300 hover:bg-gray-600 transition">
                   <Menu size={20} />
                 </button>
-                <button className="p-2 rounded-md text-gray-400 hover:bg-gray-200 transition">
+                <button className="p-2 rounded-md text-gray-300 hover:bg-gray-600 transition">
                   <Sliders size={20} />
                 </button>
               </div>
@@ -156,6 +157,7 @@ const MarketPlace = () => {
           </main>
         </div>
       </div>
+      </div>
     </Layout>
   );
 };
@@ -163,7 +165,7 @@ const MarketPlace = () => {
 // A reusable component for displaying an individual asset card.
 const AssetCard = ({ asset }) => {
   return (
-    <div className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transition-transform transform hover:scale-105">
+    <div className="border border-amber-50 rounded-xl shadow-lg overflow-hidden flex flex-col transition-transform transform hover:scale-105">
       {/* Asset Image */}
       <div className="relative">
         <img
@@ -188,18 +190,18 @@ const AssetCard = ({ asset }) => {
       {/* Card Content */}
       <div className="p-6 flex flex-col justify-between flex-grow">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-xs text-gray-500 font-semibold uppercase">{asset.type}</span>
+          <span className="text-xs text-gray-300 font-semibold uppercase">{asset.type}</span>
           <div className="flex items-center gap-1 text-purple-600">
             <Star size={14} className="fill-current" />
             <span className="text-sm font-semibold">{asset.rating}</span>
           </div>
         </div>
 
-        <h3 className="text-lg font-bold text-gray-900 mb-1">{asset.title}</h3>
-        <p className="text-sm text-gray-500 mb-4">by {asset.author}</p>
+        <h3 className="text-lg font-bold text-gray-300 mb-1">{asset.title}</h3>
+        <p className="text-sm text-gray-300 mb-4">by {asset.author}</p>
 
         {/* Stats Section */}
-        <div className="flex items-center justify-between mb-4 text-gray-500">
+        <div className="flex items-center justify-between mb-4 text-gray-300">
           <div className="flex items-center gap-1">
             <Eye size={16} />
             <span className="text-xs">{asset.views}</span>
