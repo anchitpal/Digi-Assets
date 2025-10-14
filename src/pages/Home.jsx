@@ -39,38 +39,38 @@ const Home = () => {
         <div className='[background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]'>
         {/* Hero section */}
         <div className='p-4 sm:p-8 flex flex-col items-center'>
-          <h1 className='text-3xl sm:text-6xl font-bold text-center'>Buy & Sell</h1>
+          <h1 className='text-3xl sm:text-6xl font-bold text-center text-gray-300'>Buy & Sell</h1>
           <h1 className='text-4xl sm:text-7xl font-bold text-cyan-400 p-2 sm:p-4 text-center'>Digital Assets</h1>
           <h3 className='text-2xl sm:text-5xl font-bold text-gray-300 text-center'>with Confidence</h3>
           <br className="hidden sm:block" /><br className="hidden sm:block" />
-          <p className='text-base sm:text-2xl text-gray-300 text-center'>
+          <p className='text-base sm:text-2xl text-gray-300 text-center font-playwrite-modern pb-4 sm:pb-8'>
             Discover , buy, and sell premium digital art, music, NFTs, and eBooks. Join <br className="hidden sm:block" />
             thousands of creators and collectors in the most trusted digital marketplace.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-0">
+          <div className="flex flex-col items-center sm:flex-row gap-4 sm:gap-0">
             <Link to='marketplace'>
             <motion.button animate={{ scale: 1.1 }} whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }} className='rounded-xl sm:m-4 m-3 font-bold p-4 sm:p-6 bg-gradient-to-r from-blue-500 via-sky-400 to-cyan-300 hover:from-blue-500 hover:via-green-400 hover:to-indigo-500'>
               Explore Marketplace
             </motion.button>
             </Link>
-            <Link to='selling'><motion.button animate={{ scale: 1.1 }} whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }} className='rounded-xl sm:m-4  font-bold border-b-blue-500 p-4 sm:p-6 
+            <Link to='selling'><motion.button animate={{ scale: 1.1 }} whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }} className='rounded-xl sm:m-4 text-gray-300 font-bold border-b-blue-500 p-4 sm:p-6 
             hover:border-b-blue-800 bg-gradient-to-bl from-blue-400 via-40% hover:from-blue-500 hover:via-70% hover:to-blue-200'>Start Selling</motion.button></Link>
           </div>
           <div className='flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 gap-0 sm:gap-30 p-6 sm:p-12 w-full justify-center'>
             {/* Statistics */}
             <motion.div animate={{ scale: 1.1 }} whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }} className='flex flex-col items-center justify-center '>
               <img src='https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXlmeG9wMXlncXhha2xjcDluNnRidmFrZXczdTNnYWtud3ZtNzdocSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qHRB7JyQElM24NT0EG/giphy.gif' alt='Digital Assets' className='w-10 h-10 m-2' />
-              <h1 className='font-bold text-xl sm:text-2xl'>50K+</h1>
+              <h1 className='font-bold text-xl text-gray-300 sm:text-2xl'>50K+</h1>
               <p className='text-gray-300 text-sm sm:text-base'>Digital Assets</p>
             </motion.div>
             <motion.div animate={{ scale: 1.1 }} whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }} className='flex flex-col items-center justify-center p-2 sm:p-4'>
               <img src='https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExeG56dWd4ZG1mdzdpYWFieG5kaGhmZ3E1dGlpZ2c1YzBsZ3ZrNDA3eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/hZE5xoaM0Oxw4xiqH7/giphy.gif' alt='Active Creators' className='w-10 h-10 m-2' />
-              <h1 className='font-bold text-xl sm:text-2xl'>10K+</h1>
+              <h1 className='font-bold text-xl text-gray-300 sm:text-2xl'>10K+</h1>
               <p className='text-gray-300 text-sm sm:text-base'>Active Creators</p>
             </motion.div>
             <motion.div animate={{ scale: 1.1 }} whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }} className='flex flex-col items-center justify-center p-2 sm:p-4'>
               <img src='https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGdra3N6a294czBxa2dwZDBvd2N6enE0bXZjenllYm5hZzVrM2J5diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XkuTKBRjjGpbPVH7ib/giphy.gif' alt='Secure Transactions' className='w-10 h-10 m-2' />
-              <h1 className='font-bold text-xl sm:text-2xl'>100%</h1>
+              <h1 className='font-bold text-xl text-gray-300 sm:text-2xl'>100%</h1>
               <p className='text-gray-300 text-sm sm:text-base'>Secure Transactions</p>
             </motion.div>
           </div>
@@ -79,7 +79,7 @@ const Home = () => {
         {/* Trending Products Section */}
         <div className='p-4 sm:p-8 flex flex-col justify-center items-center '>
           <h1 className='font-extrabold text-gray-300 text-2xl sm:text-4xl p-2 sm:p-6 text-center'>Trending Digital Assets</h1>
-          <p className='text-base sm:text-2xl text-gray-300 p-2 text-center'>
+          <p className='text-base sm:text-2xl text-gray-300 p-2 text-center font-playwrite-modern'>
             Discover the most popular and high-quality digital assets from our community of talented creators
           </p>
 
@@ -167,7 +167,7 @@ const Home = () => {
 
         <div className='p-4 sm:p-8 flex flex-col items-center '>
           <h1 className='text-2xl sm:text-4xl font-bold text-white text-center'>Everything You Need to Succeed</h1>
-          <p className='text-base sm:text-2xl text-white pt-2 sm:pt-4 text-center'>
+          <p className='text-base sm:text-2xl text-white pt-2 sm:pt-4 text-center font-playwrite-modern'>
             Our platform provides all the tools and features you need to buy, sell, and manage
           </p>
           <p className='text-base sm:text-2xl text-white text-center'>digital assets with confidence</p>

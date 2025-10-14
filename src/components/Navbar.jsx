@@ -6,22 +6,22 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className='flex flex-wrap justify-between items-center bg-gray-800 text-white p-4 relative z-50'>
+  <nav className='flex flex-wrap justify-between items-center bg-gray-800 text-white p-4 relative z-50 min-h-[56px]'>
         <div className='font-bold text-2xl bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 text-transparent bg-clip-text'>
           <Link to='/'>Digi-Assets</Link>
         </div>
 
         {/* Hamburger for mobile */}
         <button
-          className="sm:hidden block text-white focus:outline-none z-50"
+          className="sm:hidden text-white focus:outline-none z-50 w-10 h-10 flex items-center justify-center"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
           {/* Animated Hamburger Icon */}
           <div className="space-y-1.5">
-            <span className={`block h-0.5 w-7 bg-white transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-            <span className={`block h-0.5 w-7 bg-white transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`}></span>
-            <span className={`block h-0.5 w-7 bg-white transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+            <span className={`block h-[2px] w-7 bg-white transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+            <span className={`block h-[2px] w-7 bg-white transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`}></span>
+            <span className={`block h-[2px] w-7 bg-white transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
           </div>
         </button>
 
