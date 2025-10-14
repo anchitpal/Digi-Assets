@@ -52,111 +52,107 @@ const MarketPlace = () => {
   return (
     <Layout>
       <div className='[background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]'>
-      {/* Your original header section */}
-      <section className='w-full h-64 flex flex-col items-center justify-center text-white gap-5'>
-        <h1 className='font-bold text-5xl'>Digital Marketplace</h1>
-        <p className='text-xl'>Discover premium digital assets from talented creators worldwide</p>
-        <input type="text" placeholder='Search for digital assets...' className='p-6 h-10 w-2xl text-white rounded'/>
-      </section>
+        {/* Your original header section */}
+        <section className='w-full h-64 flex flex-col items-center justify-center text-white gap-5 md:px-0 px-4'>
+          <h1 className='font-bold text-5xl'>Digital Marketplace</h1>
+          <p className='text-xl'>Discover premium digital assets from talented creators worldwide</p>
+          <input
+            type="text"
+            placeholder='Search for digital assets...'
+            className='w-full max-w-md md:max-w-xl lg:max-w-2xl mx-auto px-4 py-2 h-10 text-gray-300 placeholder-gray-400 bg-transparent rounded border border-white focus:outline-none focus:ring-2 focus:ring-purple-500'
+          />
+        </section>
 
-      {/* The main marketplace UI, integrated below your header */}
-      <div className="p-4 md:p-8 font-['Inter']">
-        {/* Mobile header (hidden on larger screens) */}
-        <div className="flex justify-between items-center bg-white shadow-lg p-4 mb-4 rounded-lg md:hidden">
-          <h1 className="text-xl font-bold">Marketplace</h1>
-          <button className="p-2 rounded-full hover:bg-gray-100 transition">
-            <Menu size={24} />
-          </button>
-        </div>
+        {/* The main marketplace UI, integrated below your header */}
+        <div className="p-4 md:p-8 font-['Inter']">
+          {/* Mobile header (hidden on larger screens) */}
+          <div className="flex justify-between items-center bg-white shadow-lg p-4 mb-4 rounded-lg md:hidden">
+            <h1 className="text-xl font-bold">Marketplace</h1>
+            <button className="p-2 rounded-full hover:bg-gray-100 transition">
+              <Menu size={24} />
+            </button>
+          </div>
 
-        {/* Main content container with a flex layout for sidebar and main area */}
-        <div className="container mx-auto flex flex-col md:flex-row gap-8">
-          {/* Sidebar for filters */}
-          <aside className="w-full md:w-1/4 p-6 rounded-lg shadow-lg flex-shrink-0">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold text-gray-300 flex items-center gap-2">
-                <Filter size={20} />
-                Filters
-              </h2>
-            </div>
+          {/* Main content container with a flex layout for sidebar and main area */}
+          <div className="container mx-auto flex flex-col md:flex-row gap-8">
+            {/* Sidebar for filters */}
+            <aside className="w-full md:w-1/4 p-6 rounded-lg shadow-lg flex-shrink-0">
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-xl font-bold text-gray-300 flex items-center gap-2">
+                  <Filter size={20} />
+                  Filters
+                </h2>
+              </div>
 
-            {/* Category Filter */}
-            <div className="mb-6">
-              <label className="block text-gray-100 font-semibold mb-2">Category</label>
-              <select className="w-full p-2 border bg-white border-gray-100 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500">
-                <option>All Categories</option>
-                <option>Digital Art</option>
-                <option>Music</option>
-                <option>eBooks</option>
-              </select>
-            </div>
+              {/* Category Filter */}
+              <div className="mb-6">
+                <label className="block text-gray-100 font-semibold mb-2">Category</label>
+                <select className="w-full p-2 border bg-white border-gray-100 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500">
+                  <option>All Categories</option>
+                  <option>Digital Art</option>
+                  <option>Music</option>
+                  <option>eBooks</option>
+                </select>
+              </div>
 
-            {/* Price Range Filter */}
-            <div className="mb-6">
-              <label className="block text-gray-300 font-semibold mb-2">
-                Price Range: $0 - ${priceRange}
-              </label>
-              <input
-                type="range"
-                min="0"
-                max="1000"
-                value={priceRange}
-                onChange={(e) => setPriceRange(e.target.value)}
-                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                style={{
-                  '--tw-ring-color': 'rgb(168 85 247)',
-                  '--tw-ring-offset-color': 'rgb(249 250 251)',
-                  '--tw-ring-offset-width': '2px',
-                  '--tw-shadow': '0 0 0 3px var(--tw-ring-offset-color), 0 0 0 6px var(--tw-ring-color), var(--tw-shadow-inner)',
-                }}
-              />
-            </div>
+              {/* Price Range Filter */}
+              <div className="mb-6">
+                <label className="block text-gray-300 font-semibold mb-2">
+                  Price Range: $0 - ${priceRange}
+                </label>
+                <input
+                  type="range"
+                  min="0"
+                  max="1000"
+                  value={priceRange}
+                  onChange={(e) => setPriceRange(e.target.value)}
+                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                  style={{
+                    '--tw-ring-color': 'rgb(168 85 247)',
+                    '--tw-ring-offset-color': 'rgb(249 250 251)',
+                    '--tw-ring-offset-width': '2px',
+                    '--tw-shadow': '0 0 0 3px var(--tw-ring-offset-color), 0 0 0 6px var(--tw-ring-color), var(--tw-shadow-inner)',
+                  }}
+                />
+              </div>
 
-            {/* Sort By Filter */}
-            <div className="mb-6">
-              <label className="block text-gray-300 font-semibold mb-2">Sort By</label>
-              <select className="w-full bg-white p-2 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500">
-                <option>Newest First</option>
-                <option>Price: Low to High</option>
-                <option>Price: High to Low</option>
-                <option>Most Popular</option>
-              </select>
-            </div>
-          </aside>
+              {/* Sort By Filter */}
+              <div className="mb-6">
+                <label className="block text-gray-300 font-semibold mb-2">Sort By</label>
+                <select className="w-full bg-white p-2 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500">
+                  <option>Newest First</option>
+                  <option>Price: Low to High</option>
+                  <option>Price: High to Low</option>
+                  <option>Most Popular</option>
+                </select>
+              </div>
+            </aside>
 
-          {/* Main Content Area */}
-          <main className="w-full md:w-3/4">
-            {/* Main header with result count and view toggles */}
-            <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
-              <h1 className="text-xl sm:text-2xl font-bold text-gray-300">
-                Showing {initialAssets.length} results
-              </h1>
-              <div className="flex items-center gap-2 mt-2 sm:mt-0">
-                <button className="p-2 rounded-md text-gray-300 hover:bg-gray-600 transition">
-                  <Menu size={20} />
-                </button>
-                <button className="p-2 rounded-md text-gray-300 hover:bg-gray-600 transition">
-                  <Sliders size={20} />
+            {/* Main Content Area */}
+            <main className="w-full md:w-3/4">
+              {/* Main header with result count and view toggles */}
+              <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
+                <h1 className="text-xl sm:text-2xl font-bold text-gray-300">
+                  Showing {initialAssets.length} results
+                </h1>
+              </header>
+
+              {/* Asset Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {initialAssets.map((asset) => (
+                  <AssetCard key={asset.id} asset={asset} />
+                ))}
+              </div>
+
+              {/* Load More button */}
+              <div className="flex justify-center mt-8">
+                <button className="px-6 py-3 bg-white text-purple-600 font-semibold rounded-lg shadow-lg border border-purple-200 hover:bg-purple-50 transition transform hover:-translate-y-1">
+                  Load More Assets
                 </button>
               </div>
-            </header>
-
-            {/* Asset Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {initialAssets.map((asset) => (
-                <AssetCard key={asset.id} asset={asset} />
-              ))}
-            </div>
-
-            {/* Load More button */}
-            <div className="flex justify-center mt-8">
-              <button className="px-6 py-3 bg-white text-purple-600 font-semibold rounded-lg shadow-lg border border-purple-200 hover:bg-purple-50 transition transform hover:-translate-y-1">
-                Load More Assets
-              </button>
-            </div>
-          </main>
+            </main>
+          </div>
         </div>
-      </div>
       </div>
     </Layout>
   );
@@ -218,7 +214,7 @@ const AssetCard = ({ asset }) => {
 
         {/* Price and Buy Now Button */}
         <div className="flex items-center justify-between pt-4 border-t border-gray-200">
-          <span className="text-2xl font-bold text-gray-900">${asset.price}</span>
+          <span className="text-2xl font-bold text-gray-300">${asset.price}</span>
           <button className="px-5 py-2 bg-purple-600 text-white font-semibold rounded-lg shadow-md transition-colors hover:bg-purple-700">
             Buy Now
           </button>
