@@ -13,21 +13,24 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import MarketPlace from './pages/MarketPlace'
 import Selling from './pages/Selling'
+import Purchases from './pages/Purchases'
+import { AuthProvider } from './context/AuthContext'
 
 function App() {
   return (
-    <>
-    <Router>
-      <Routes>
-        <Route path='/' element={<Home/>} />
-        <Route path='/login' element={<Login/>} />
-        <Route path='/about' element={<About/>} />
-        <Route path='/contact' element={<Contact/>} />
-        <Route path='/marketplace' element={<MarketPlace/>} />
-        <Route path='/selling' element={<Selling/>} />
-      </Routes>
-    </Router>
-    </>
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Home/>} />
+          <Route path='/login' element={<Login/>} />
+          <Route path='/about' element={<About/>} />
+          <Route path='/contact' element={<Contact/>} />
+          <Route path='/marketplace' element={<MarketPlace/>} />
+          <Route path='/selling' element={<Selling/>} />
+          <Route path='/purchases' element={<Purchases />} />
+        </Routes>
+      </Router>
+    </AuthProvider>
   )
 }
 

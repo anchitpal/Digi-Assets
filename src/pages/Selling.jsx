@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import axios from 'axios';
 import Layout from '../Layout/Layout';
+import { useAuth } from '../context/AuthContext';
+import { AlertCircle, CheckCircle, Loader, ArrowLeft } from 'lucide-react';
 const FormField = ({ label, name, placeholder, value, onChange, type = 'text', options, isRequired = false, isFullWidth = false, currencySymbol }) => {
   const inputClass = "w-full p-2 border bg-black border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500";
   const containerClass = isFullWidth ? 'md:col-span-2' : '';
@@ -98,6 +102,8 @@ const ToggleSwitch = ({ label, description, isChecked, onToggle, disabled = fals
 
 
 const Upload = () => {
+  const { user, token, API_URL } = useAuth();
+  const navigate = useNavigate();
   const [files, setFiles] = useState([]);
   const [isDragging, setIsDragging] = useState(false);
   const [formData, setFormData] = useState({
@@ -107,9 +113,12 @@ const Upload = () => {
     price: '',
     tags: '',
   });
-  const [personalUse, setPersonalUse] = useState(false);
+  const [personalUse, setPersonalUse] = useState(true);
   const [commercialUse, setCommercialUse] = useState(false);
   const [exclusiveRights, setExclusiveRights] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
   const categories = [
     "Digital Art",
@@ -155,6 +164,63 @@ const Upload = () => {
   const handleCommercialUseToggle = () => setCommercialUse(!commercialUse);
   const handleExclusiveRightsToggle = () => setExclusiveRights(!exclusiveRights);
 
+  const handlePublish = async (e) => {
+    e.preventDefault();
+    if (!user) {
+      setError('Please sign in to publish assets.');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    if (files.length === 0) {
+      setError('Please upload an asset file.');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    if (!formData.title || !formData.category || !formData.description || !formData.price) {
+      setError('Please fill in all required fields.');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    setUploading(true);
+    setError('');
+    setSuccess('');
+
+    try {
+      const data = new FormData();
+      data.append('file', files[0]);
+      data.append('name', formData.title);
+      data.append('Description', formData.description);
+      data.append('price', formData.price);
+      
+      const categoryTag = formData.category.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-');
+      const customTags = formData.tags ? formData.tags.split(',').map(t => t.trim()).filter(t => t.length > 0) : [];
+      const allTags = [categoryTag, ...customTags];
+      data.append('tags', allTags.join(','));
+
+      const usageType = commercialUse ? 'commercial' : 'personal';
+      data.append('usageType', usageType);
+      data.append('exclusive', exclusiveRights);
+
+      await axios.post(`${API_URL}/products`, data, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+
+      setSuccess('Asset published successfully! Redirecting...');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(() => {
+        navigate('/marketplace');
+      }, 2000);
+    } catch (err) {
+      setError(err.response?.data?.message || 'Failed to publish asset. Please try again.');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } finally {
+      setUploading(false);
+    }
+  };
+
   return (
     <div className="font-sans">
       <Layout>
@@ -165,7 +231,31 @@ const Upload = () => {
           </section>
 
           <div className="container mx-auto p-4 md:p-8">
-            {/* Upload Component */}
+            {error && (
+              <div className="max-w-4xl mx-auto mb-6 p-4 rounded-xl bg-red-950/40 border border-red-500/30 text-red-400 flex items-center gap-3">
+                <AlertCircle size={20} />
+                <span>{error}</span>
+              </div>
+            )}
+            {success && (
+              <div className="max-w-4xl mx-auto mb-6 p-4 rounded-xl bg-green-950/40 border border-green-500/30 text-green-400 flex items-center gap-3">
+                <CheckCircle size={20} />
+                <span>{success}</span>
+              </div>
+            )}
+            
+            {!user ? (
+              <div className="max-w-2xl mx-auto bg-white/5 border border-white/10 rounded-2xl shadow-xl p-8 text-center backdrop-blur-md my-12">
+                <AlertCircle size={48} className="mx-auto text-yellow-500 mb-4" />
+                <h2 className="text-2xl font-bold text-white mb-2">Authentication Required</h2>
+                <p className="text-gray-400 mb-6">You must be signed in to upload and sell digital assets on the marketplace.</p>
+                <Link to="/login" className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold px-6 py-3 rounded-xl shadow-lg transition">
+                  Sign In Now
+                </Link>
+              </div>
+            ) : (
+              <>
+                {/* Upload Component */}
             <div className=" rounded-xl shadow-lg p-8 w-full max-w-2xl mx-auto mb-8">
               <div className="flex items-center text-gray-300 mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2">
@@ -251,18 +341,34 @@ const Upload = () => {
                   </div>
                 </div>
                 <div className="flex justify-end space-x-4">
-                  <button className="px-6 py-2 border border-gray-300 text-gray-300 rounded-md font-semibold hover:bg-gray-700 transition-colors">
+                  <button type="button" className="px-6 py-2 border border-gray-300 text-gray-300 rounded-md font-semibold hover:bg-gray-700 transition-colors">
                     Save Draft
                   </button>
-                  <button className="px-6 py-2 bg-gradient-to-r from-violet-600 to-blue-500 text-gray-300 rounded-md font-semibold hover:from-violet-700 hover:to-blue-600 transition-colors shadow-md flex items-center space-x-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M20 6 9 17l-5-5" />
-                    </svg>
-                    <span>Publish Asset</span>
+                  <button 
+                    type="button" 
+                    onClick={handlePublish}
+                    disabled={uploading}
+                    className="px-6 py-2 bg-gradient-to-r from-violet-600 to-blue-500 text-gray-300 rounded-md font-semibold hover:from-violet-700 hover:to-blue-600 transition-colors shadow-md flex items-center space-x-2 cursor-pointer disabled:opacity-50"
+                  >
+                    {uploading ? (
+                      <>
+                        <Loader className="animate-spin" size={18} />
+                        <span>Publishing...</span>
+                      </>
+                    ) : (
+                      <>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M20 6 9 17l-5-5" />
+                        </svg>
+                        <span>Publish Asset</span>
+                      </>
+                    )}
                   </button>
                 </div>
               </div>
             </div>
+            </>
+            )}
           </div>
         </div>
       </Layout>
